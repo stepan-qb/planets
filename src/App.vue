@@ -10,7 +10,7 @@
         {{ item.name }}
       </div>
     </div>
-    
+
     <planet-modal />
   </div>
 </template>
@@ -28,11 +28,11 @@ export default {
     list: null,
   }),
   created() {
-    axios('https://api.punkapi.com/v2/beers', {
+    axios('https://swapi.co/api/people/', {
       method: 'GET',
       mode: 'no-cors',
     }).then((resp) => {
-      this.list = resp.data;
+      this.list = resp.data.results;
     }).catch((e) => {
       console.log(e);
     });
